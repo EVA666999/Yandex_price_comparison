@@ -1,0 +1,82 @@
+<style>
+    body {
+        min-height: 100%;
+        margin: 0;
+        padding: 30px;
+        background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        box-sizing: border-box;
+    }
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .wrap {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        strong {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .price {
+            font-size: 16px;
+            color: #007bff;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>Результаты поиска для: {{ query }}</h1>
+        <ul>
+            <li>
+                <strong>{{ results.name }}</strong>
+                <br>
+                Минимальная цена: <span class="price">{{ results.prices.min }} RUR</span>
+                <br>
+                {% if results.id != 'N/A' %}
+                    <a href="https://market.yandex.ru/product/{{ results.id }}">Ссылка на товар</a>
+                {% else %}
+                    Ссылка на товар недоступна
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

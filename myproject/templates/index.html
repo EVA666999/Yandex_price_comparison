@@ -1,0 +1,39 @@
+{% load static %}
+<style>
+  body {
+      min-height: 100%;
+      margin: 0;
+      padding: 30px;
+      background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      box-sizing: border-box;
+  }
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <style>
+        .wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="search">
+            <form method="POST" action="{% url 'search' %}">
+                {% csrf_token %}
+                <input type="text" class="searchTerm" name="query" placeholder="Введите название">
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search">Поиск</i>
+                    <span class="btnInner"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
