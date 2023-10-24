@@ -4,11 +4,11 @@
 
 <h3>Как всё рабоатет?</h3>
 <ul>
-  <li>есть API ссылка в которой вставляются ныжные переменные для запроса f'https://api.partner.market.yandex.ru/v2/models?query={query}&regionId={region_id}&page={page}'</li>
+  <li>есть API ссылка в которой вставляются ныжные переменные для запроса <pre>f'https://api.partner.market.yandex.ru/v2/models?query={query}&regionId={region_id}&page={page}'</pre></li>
   <li>query это название товара, region_id номер региона который можно узнать через гет запрос и page это количество обрабатываемых страниц</li>
   <li>Код собирает данные по запросу query со всех страниц с помошью бесконечного цыкла while True и базового случая if page > 50: break так как страниц всего 50</li>
   <li>Дальше переменной results будет находиться список всех значений, связанных с ключом 'models' я вставил это в новый список total_results += results</li>
-  <li>Отфильтровал новый список так что бы значение query было в поля name для модели ``` filtered_results = [model for model in total_results if query_lower in model.get('name').lower()]```</li>
+  <li>Отфильтровал новый список так что бы значение query было в поля name для модели <pre> filtered_results = [model for model in total_results if query_lower in model.get('name').lower()]</pre></li>
   <li>И получил минимальную цену товара с помощью цыкла for </li>
 </ul>
 
